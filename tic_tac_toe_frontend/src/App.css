@@ -1,0 +1,217 @@
+:root {
+  /* Cotton Candy Pastel Theme */
+  --cotton-pink: #ffd1eb;      /* Soft bubblegum pink */
+  --cotton-blue: #b8e0fe;      /* Light sky blue */
+  --cotton-mint: #d2f7f3;      /* Airy mint pastel */
+  --cotton-lavender: #e0d1ff;  /* Light lavender pastel */
+  --cotton-yellow: #fff9db;    /* Whipped soft yellow */
+  --cotton-white: #ffffff;
+
+  --bg-primary: var(--cotton-pink);
+  --bg-secondary: var(--cotton-lavender);
+  --text-primary: #726a77;       /* Muted, gentle primary text */
+  --text-secondary: #a6aacd;     /* Softer accent text */
+  --border-color: #f5eefe;       /* Ultra light lavender */
+  --button-bg: #b8e0fe;          /* Pastel blue */
+  --button-bg-hover: #d2f7f3;    /* Mint for hover */
+  --button-text: #726a77;        /* Muted for legibility */
+  --shadow: 0 6px 36px 4px rgba(221,181,240,0.13),
+            0 1.5px 8px 1px rgba(184,224,254,0.12);
+  --square-hover: #fff4fa;       /* Lighter pink hover for ttt squares */
+  --square-winner: #d2f7f3;      /* Mint for winning combo */
+  --status-bar-bg: #fff9db;      /* soft yellow as highlight */
+}
+
+[data-theme="dark"] {
+  /* Optionally, a dreamy twilight cotton-candy sky theme for dark mode */
+  --bg-primary: #2e224c;
+  --bg-secondary: #453a62;
+  --text-primary: #faf7f4;
+  --text-secondary: #b8e0fe;
+  --border-color: #6c5b7b;
+  --button-bg: #726a77;
+  --button-text: #fff9db;
+  --shadow: 0 6px 40px 4px rgba(68,52,106,0.23);
+  --square-hover: #453a62;
+ }
+
+body, .App {
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-primary) 20%, var(--bg-secondary) 80%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: 'Quicksand', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  transition: background 0.3s cubic-bezier(.77,0,.175,1), color 0.3s;
+}
+
+.App-header {
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(14px + 2vmin);
+  color: var(--text-primary);
+  position: relative;
+}
+
+/* Theme toggle with pastel gentle look */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 21px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
+  outline: none;
+}
+.theme-toggle:hover {
+  background-color: var(--button-bg-hover);
+  transform: scale(1.04);
+  box-shadow: 0 12px 36px 4px rgba(255,177,237,0.10);
+  opacity: 0.97;
+}
+.theme-toggle:active {
+  transform: scale(1);
+}
+
+/* Tic Tac Toe Component Styling with Fluffy Cotton Candy Aesthetic */
+.ttt-board {
+  margin: 32px auto 12px;
+  display: inline-block;
+  background: var(--bg-secondary);
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+  padding: 36px 36px 24px 36px;
+}
+
+.ttt-board-row {
+  display: flex;
+}
+
+.ttt-square {
+  background-color: var(--cotton-white);
+  border: 3px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(200,180,250,0.15);
+  color: var(--text-primary);
+  font-size: 44px;
+  font-weight: 700;
+  min-width: 72px;
+  min-height: 72px;
+  margin: 9px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.ttt-square:hover, .ttt-square:focus {
+  background: var(--square-hover);
+  box-shadow: 0 2px 16px 0 rgba(255,209,235,0.21);
+  border-color: var(--cotton-mint);
+}
+.ttt-square.square-winner {
+  /* Highlight the winning line with minty pastel */
+  background: var(--square-winner);
+  border-color: var(--cotton-blue);
+  color: #38b2ac;
+}
+
+.ttt-status {
+  padding: 17px 28px 17px 28px;
+  margin: 0 auto 24px;
+  background: var(--status-bar-bg);
+  border-radius: 18px;
+  font-size: 1.3em;
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 10px 0 rgba(215,211,250,0.10);
+  letter-spacing: 0.03em;
+}
+.ttt-status.won {
+  color: #a259c7;
+  background: linear-gradient(92deg, #e0d1ff 78%, #fff9db 100%);
+}
+
+.ttt-status.draw {
+  color: #27a2ae;
+  background: linear-gradient(92deg, #d2f7f3 72%, #e0d1ff 100%);
+}
+
+/* ControlBar (Restart Button) styled for fluffiness */
+.ttt-controlbar {
+  margin-top: 16px;
+}
+
+.ttt-btn.ttt-restart-btn {
+  background: linear-gradient(120deg, var(--cotton-blue), var(--cotton-mint) 80%);
+  border: none;
+  border-radius: 21px;
+  color: var(--button-text);
+  font-size: 17px;
+  font-weight: bold;
+  padding: 13px 42px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 10px 1px rgba(184,224,254,0.17);
+  cursor: pointer;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.1s;
+  outline: none;
+}
+.ttt-btn.ttt-restart-btn:hover,
+.ttt-btn.ttt-restart-btn:focus {
+  background: linear-gradient(120deg, var(--cotton-mint), var(--cotton-pink) 92%);
+  color: #38b2ac;
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px 6px rgba(255,209,235,0.13);
+}
+
+/* Fluffy drop shadow for logo (if present) */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  filter: drop-shadow(0px 5px 23px #ffd1eb99) brightness(1.04);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .ttt-board {
+    padding: 20px 4vw 15px 4vw;
+    border-radius: 18px;
+  }
+  .ttt-square {
+    font-size: 32px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 11px;
+    margin: 4.3vw 2vw;
+  }
+  .ttt-status {
+    font-size: 1em;
+    padding: 11px 8vw;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cotton-pink);
+}
+::-webkit-scrollbar-track {
+  background: var(--cotton-blue);
+}
+
+/* End of cotton candy theme styles */
